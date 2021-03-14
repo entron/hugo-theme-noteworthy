@@ -16,7 +16,11 @@
             </h2>
             <div>
                 <a style="text-decoration:none" href="{{ .RelPermalink }}">
-                    <p>{{ .Summary }}</p>
+                    {{if .Title }}
+                        <p>{{replace .Summary .Title "" }}</p>
+                    {{ else }}
+                        <p>{{ .Summary }}</p>
+                    {{ end }}
                     {{ if .Truncated }}
                     <p>...</p>
                     {{ end }}
