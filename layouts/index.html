@@ -15,10 +15,12 @@
                 </a>
             </h2>
             <div>
-                <p>{{ .Summary }}</p>
-                {{ if (and (.Site.Params.showReadMore) (.Truncated)) }}
-                <p><a href="{{ .RelPermalink }}">Read more...</a></p>
-                {{ end }}
+                <a style="text-decoration:none" href="{{ .RelPermalink }}">
+                    <p>{{ .Summary }}</p>
+                    {{ if .Truncated }}
+                    <p>...</p>
+                    {{ end }}
+                </a>
             </div>
             <div class="post-footer">
             <time>{{ .Date.Format "January 2, 2006" }}</time>
