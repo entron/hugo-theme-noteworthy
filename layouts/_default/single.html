@@ -1,9 +1,14 @@
 {{ define "main" }}
 
-    <p></p>
+    <div>
+    <span class="tag">
+        {{ $author := index .Site.Data.authors .Params.authors }}
+        {{ $author.name }}
+    </span>
     {{ if .Date }}
     <time>{{ .Date.Format "January 2, 2006" }}</time>
     {{ end }}
+    </div>
     <div>
         <p>
         {{ .Content }}
