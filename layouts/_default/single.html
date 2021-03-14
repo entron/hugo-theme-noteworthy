@@ -23,8 +23,8 @@
     {{ end }}
 
     <div class="page-footer">
-        {{if .Params.tags}}
         <hr class="footer-divider">
+        {{if .Params.tags}}
         {{ range .Params.tags }}
             <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
         {{ end }}
