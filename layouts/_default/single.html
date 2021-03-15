@@ -1,10 +1,9 @@
 {{ define "main" }}
-
+    {{ $author := index .Site.Data.authors .Params.authors }}
     <div>
-    <span class="tag">
-        {{ $author := index .Site.Data.authors .Params.authors }}
+    <a class="tag" style="text-decoration:none" href="/authors/{{ $author.hex }}">
         {{ $author.name }}
-    </span>
+    </a>
     {{ if .Date }}
     <time>{{ .Date.Format "January 2, 2006" }}</time>
     {{ end }}
