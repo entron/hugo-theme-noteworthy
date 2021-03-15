@@ -3,7 +3,7 @@
 <h1>{{ i18n .Data.Plural | default .Data.Plural }}</h1>
 <ul>
     {{ range .Data.Terms.Alphabetical }}
-        <li><a href="{{ .Page.Permalink }}">
+    <li><a href="{{ .Page.Permalink }}">
             {{ $author := index site.Data.authors .Page.Title }}
             {{ $author.name }}
         </a>{{ .Count }}</li>

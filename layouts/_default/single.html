@@ -1,39 +1,39 @@
 {{ define "main" }}
-    {{ $author := index .Site.Data.authors .Params.authors }}
-    <div>
+{{ $author := index .Site.Data.authors .Params.authors }}
+<div>
     <a class="tag" style="text-decoration:none" href="/authors/{{ $author.hex }}">
         {{ $author.name }}
     </a>
     {{ if .Date }}
     <time>{{ .Date.Format "January 2, 2006" }}</time>
     {{ end }}
-    </div>
-    <div>
-        <p>
+</div>
+<div>
+    <p>
         {{ .Content }}
-        </p>
-    </div>
-    {{ template "_internal/disqus.html" . }}
+    </p>
+</div>
+{{ template "_internal/disqus.html" . }}
 
-    {{ if .Site.Params.enableKofi }}
+{{ if .Site.Params.enableKofi }}
 
-        <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-        <script type='text/javascript'>
-            const kofiId = '{{ .Site.Params.Kofi }}';
-            kofiwidget2.init('Support Me on Ko-fi', '#29abe0', kofiId);
-            kofiwidget2.draw();
-        </script> 
+<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
+<script type='text/javascript'>
+    const kofiId = '{{ .Site.Params.Kofi }}';
+    kofiwidget2.init('Support Me on Ko-fi', '#29abe0', kofiId);
+    kofiwidget2.draw();
+</script>
 
+{{ end }}
+
+<div class="page-footer">
+    <hr class="footer-divider">
+    {{if .Params.tags}}
+    {{ range .Params.tags }}
+    <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
     {{ end }}
-
-    <div class="page-footer">
-        <hr class="footer-divider">
-        {{if .Params.tags}}
-        {{ range .Params.tags }}
-            <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
-        {{ end }}
-      {{ end }}
-      {{.Params.id}}
-    </div>
+    {{ end }}
+    {{.Params.id}}
+</div>
 
 {{end}}

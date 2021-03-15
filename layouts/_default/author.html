@@ -1,36 +1,36 @@
 {{ define "main" }}
 <!-- Page that displays after clicking on a post's tag -->
-    {{ $author := index site.Data.authors .Data.Term }}
-    
-  <h1>{{ $author.name }}</h1>
-  {{range .Pages}}
-  
-    <!-- Display the posts with the tag -->
-    <article>
-            <h2>
-                <a href="{{ .Permalink }}">
-                    {{ .Title }}
-                </a>
-            </h2>
-            <div>
-                <a style="text-decoration:none" href="{{ .RelPermalink }}">
-                    {{if .Title }}
-                        <p>{{replace .Summary .Title "" 1 }}</p>
-                    {{ else }}
-                        <p>{{ .Summary }}</p>
-                    {{ end }}
-                    {{ if .Truncated }}
-                    <p>...</p>
-                    {{ end }}
-                </a>
-            </div>
-            <div class="post-footer">
-            <span class="tag">
-                {{ $author.name }}
-            </span>
-            <time>{{ .Date.Format "January 2, 2006" }}</time>
-            </div> 
-        </article>
-    {{ end }}
+{{ $author := index site.Data.authors .Data.Term }}
+
+<h1>{{ $author.name }}</h1>
+{{range .Pages}}
+
+<!-- Display the posts with the tag -->
+<article>
+    <h2>
+        <a href="{{ .Permalink }}">
+            {{ .Title }}
+        </a>
+    </h2>
+    <div>
+        <a style="text-decoration:none" href="{{ .RelPermalink }}">
+            {{if .Title }}
+            <p>{{replace .Summary .Title "" 1 }}</p>
+            {{ else }}
+            <p>{{ .Summary }}</p>
+            {{ end }}
+            {{ if .Truncated }}
+            <p>...</p>
+            {{ end }}
+        </a>
+    </div>
+    <div class="post-footer">
+        <span class="tag">
+            {{ $author.name }}
+        </span>
+        <time>{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+</article>
+{{ end }}
 
 {{ end }}
