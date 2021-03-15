@@ -3,6 +3,8 @@
 {{ $author := index site.Data.authors .Data.Term }}
 
 <h1>{{ $author.name }}</h1>
+<code>{{ $author.id }}</code>
+
 {{range .Paginator.Pages}}
 
 <!-- Display the posts with the tag -->
