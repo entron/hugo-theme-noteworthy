@@ -1,0 +1,14 @@
+{{ define "main" }}
+<!-- Shows all of the site's tags -->
+<h1>{{ i18n .Data.Plural | default .Data.Plural }}</h1>
+<ul>
+    {{ range .Data.Terms.Alphabetical }}
+        <li><a href="{{ .Page.Permalink }}">
+            {{ $author := index site.Data.authors .Page.Title }}
+            {{ $author.name }}
+        </a>{{ .Count }}</li>
+    {{ end }}
+</ul>
+
+<div class="page-footer"></div>
+{{end}}
