@@ -15,7 +15,7 @@
         </a>
     </h2>
     <div>
-        <a style="text-decoration:none" href="{{ .RelPermalink }}">
+        <a style="text-decoration:none" href="{{ replace .RelPermalink "posts" "threads" 1}}">
             {{if .Title }}
             <p>{{replace .Summary .Title "" 1 }}</p>
             {{ else }}

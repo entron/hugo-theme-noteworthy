@@ -1,0 +1,23 @@
+{{ define "main" }}
+<!-- Page that displays after clicking on a post's tag -->
+
+{{range .Pages.ByDate}}
+<!-- Display the posts with the tag -->
+<article>
+    <div>
+        {{ $author := index .Site.Data.feeds .Params.feeds }}
+        <a class="tag" style="text-decoration:none" href="/feeds/{{ $author.hex }}">
+            {{ $author.name }}
+        </a>
+        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        <p>
+            {{ .Content }}
+        </p>
+    </div>
+    <div class="post-footer">
+        <a style="text-decoration:none" href="{{ .RelPermalink }}">{{.Params.id}}</a>
+    </div>
+</article>
+{{ end }}
+
+{{ end }}
