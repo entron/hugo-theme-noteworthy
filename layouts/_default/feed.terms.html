@@ -4,7 +4,7 @@
 <ul>
     {{ range .Data.Terms.Alphabetical }}
     <li><a href="{{ .Page.Permalink }}">
-            {{ $author := index site.Data.authors .Page.Title }}
+            {{ $author := index site.Data.feeds .Page.Title }}
             {{ $author.name }}
         </a>{{ .Count }}</li>
     {{ end }}

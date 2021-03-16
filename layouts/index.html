@@ -27,15 +27,15 @@
             </a>
         </div>
         <div class="post-footer">
-            {{ $author := index .Site.Data.authors .Params.authors }}
-            <a class="tag" style="text-decoration:none" href="/authors/{{ $author.hex }}">
+            {{ $author := index .Site.Data.feeds .Params.feeds }}
+            <a class="tag" style="text-decoration:none" href="/feeds/{{ $author.hex }}">
                 {{ $author.name }}
             </a>
             <time>{{ .Date.Format "January 2, 2006" }}</time>
 
             <!-- Display tags -->
-            {{if .Params.tags}}
-            {{ range .Params.tags }}
+            {{if .Params.channels}}
+            {{ range .Params.channels }}
             <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
             {{ end }}
             {{ end }}

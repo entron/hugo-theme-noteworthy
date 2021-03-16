@@ -1,7 +1,7 @@
 {{ define "main" }}
-{{ $author := index .Site.Data.authors .Params.authors }}
+{{ $author := index .Site.Data.feeds .Params.feeds }}
 <div>
-    <a class="tag" style="text-decoration:none" href="/authors/{{ $author.hex }}">
+    <a class="tag" style="text-decoration:none" href="/feeds/{{ $author.hex }}">
         {{ $author.name }}
     </a>
     {{ if .Date }}
@@ -28,8 +28,8 @@
 
 <div class="page-footer">
     <hr class="footer-divider">
-    {{if .Params.tags}}
-    {{ range .Params.tags }}
+    {{if .Params.channels}}
+    {{ range .Params.channels }}
     <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
     {{ end }}
     {{ end }}

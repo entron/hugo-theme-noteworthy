@@ -1,6 +1,10 @@
 {{ define "main" }}
 <!-- Page that displays after clicking on a post's tag -->
-<h1>#{{ .Data.Term }}</h1>
+{{ $author := index site.Data.feeds .Data.Term }}
+
+<h1>{{ $author.name }}</h1>
+<code>{{ $author.id }}</code>
+
 {{range .Paginator.Pages}}
 
 <!-- Display the posts with the tag -->
@@ -23,10 +27,9 @@
         </a>
     </div>
     <div class="post-footer">
-        {{ $author := index .Site.Data.authors .Params.authors }}
-        <a class="tag" style="text-decoration:none" href="/authors/{{ $author.hex }}">
+        <span class="tag">
             {{ $author.name }}
-        </a>
+        </span>
         <time>{{ .Date.Format "January 2, 2006" }}</time>
     </div>
 </article>
