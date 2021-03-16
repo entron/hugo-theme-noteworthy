@@ -5,8 +5,8 @@
 <h1>{{ $author.name }}</h1>
 <code>{{ $author.id }}</code>
 
-{{range .Paginator.Pages}}
-
+{{ $paginator := .Paginate (where .Pages "Type" "root") }}
+{{range $paginator.Pages}}
 <!-- Display the posts with the tag -->
 <article>
     <h2>

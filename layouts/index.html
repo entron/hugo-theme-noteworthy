@@ -6,7 +6,7 @@
     </div>
     {{ end }}
     <!-- Range over the pages and only include the ones that are a post type -->
-    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ $pages := where site.RegularPages "Type" "in" "root" }}
     {{ range (.Paginate $pages).Pages }}
     <article>
         <h2>
